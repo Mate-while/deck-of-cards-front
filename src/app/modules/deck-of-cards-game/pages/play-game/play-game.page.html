@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-5">
+      <h1 class="text-center">
+        Jugador 1: {{playerOne}}
+        <span *ngIf="hasWinner">
+          <i *ngIf="winner == playerOne" class="bi bi-check text-success"></i>
+          <i *ngIf="winner == playerTwo" class="bi bi-x text-danger"></i>
+        </span>
+      </h1>
+    </div>
+    <div class="col-12 col-sm-2">
+      <button
+        class="btn btn-primary mt-4"
+        (click)="getCards()"
+        *ngIf="!hasWinner"
+      >
+        Jugar
+      </button>
+      <button
+        class="btn btn-primary mt-4"
+        (click)="newGame()"
+        *ngIf="hasWinner"
+      >
+        Nuevo Juego
+      </button>
+    </div>
+    <div class="col-12 col-sm-5">
+      <h1 class="text-center">
+        Jugador 2: {{playerTwo}}
+        <span *ngIf="hasWinner">
+          <i *ngIf="winner == playerTwo" class="bi bi-check text-success"></i>
+          <i *ngIf="winner == playerOne" class="bi bi-x text-danger"></i>
+        </span>
+      </h1>
+    </div>
+  </div>
+  <div class="row" *ngIf="hasWinner">
+    <div class="col-12">
+      <hr />
+    </div>
+    <div class="col-12 col-sm-6">
+      <p class="text-center">Cartas opcionadas</p>
+      <div class="row" *ngIf="winner == playerOne">
+        <div class="col-12 col-sm-6" *ngFor="let card of winnerCards">
+          <img
+            [attr.src]="card.image"
+            [attr.alt]="card.value"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <p class="text-center">Cartas opcionadas</p>
+      <div class="row" *ngIf="winner == playerTwo">
+        <div class="col-12 col-sm-6" *ngFor="let card of winnerCards">
+          <img
+            [attr.src]="card.image"
+            [attr.alt]="card.value"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <hr />
+    </div>
+    <div class="col-12 col-sm-6">
+      <p class="text-center">Cartas obtenidas</p>
+      <div class="row">
+        <div class="col-12 col-sm-4" *ngFor="let card of playerOneCards">
+          <img
+            [attr.src]="card.image"
+            [attr.alt]="card.value"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <p class="text-center">Cartas obtenidas</p>
+      <div class="row">
+        <div class="col-12 col-sm-4" *ngFor="let card of playerTwoCards">
+          <img
+            [attr.src]="card.image"
+            [attr.alt]="card.value"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
