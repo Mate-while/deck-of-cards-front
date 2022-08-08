@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  deckApiUrl: 'http://deckofcardsapi.com/api/deck'
+  deckApiUrl: 'https://deckofcardsapi.com/api/deck'
 };
 
 /*
