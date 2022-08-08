@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  deckApiUrl: 'http://deckofcardsapi.com/api/deck'
 };
